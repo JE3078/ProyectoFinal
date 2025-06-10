@@ -38,7 +38,6 @@ class EstudianteDaoImpTest {
 
     @Test
     void getEstudiantes() {
-        // Crear lista de estudiantes simulada
         Estudiante e1 = new Estudiante();
         e1.setIdEstudiante(1);
         e1.setNombreCompleto("Emilio");
@@ -55,15 +54,12 @@ class EstudianteDaoImpTest {
 
         List<Estudiante> estudiantesMock = List.of(e1, e2);
 
-        // Simula el query sin tipado
         TypedQuery queryMock = mock(TypedQuery.class); // sin tipado genérico
         when(entityManager.createQuery("FROM Estudiante")).thenReturn(queryMock);
         when(queryMock.getResultList()).thenReturn(estudiantesMock);
 
-        // Ejecutar el método
         List<Estudiante> resultado = estudianteDao.getEstudiantes();
 
-        // Verificaciones
         assertNotNull(resultado);
         assertEquals(2, resultado.size());
         assertEquals("Emilio", resultado.get(0).getNombreCompleto());
