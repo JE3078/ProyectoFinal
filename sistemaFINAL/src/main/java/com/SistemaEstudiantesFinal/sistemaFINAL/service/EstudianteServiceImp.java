@@ -34,11 +34,11 @@ public class EstudianteServiceImp implements EstudianteService {
         }
 
         if (!telefonoValido(estudiante.getTelefono())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El número de teléfono debe tener 10 dígitos.");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El numero de teléfono debe tener 10 dígitos.");
         }
 
         if (!idiomaValido(estudiante.getIdIdioma())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El idioma seleccionado no es válido.");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El idioma seleccionado no es valido.");
         }
 
         boolean existeCorreo = estudianteDao.getEstudiantes().stream()
@@ -80,7 +80,6 @@ public class EstudianteServiceImp implements EstudianteService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El idioma seleccionado no es válido.");
         }
 
-        // Validar que el nuevo correo no esté usado por otro estudiante
         boolean correoDuplicado = estudianteDao.getEstudiantes().stream()
                 .anyMatch(e -> e.getCorreo().equalsIgnoreCase(estudiante.getCorreo()) && e.getIdEstudiante() != id);
 
