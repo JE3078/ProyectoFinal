@@ -36,7 +36,7 @@ public class EstudianteController {
         return ResponseEntity.ok("Estudiante registrado exitosamente");
     }
 
-    // Actualización completa
+    // Actualización 
     @PutMapping("/{id}")
     public ResponseEntity<Estudiante> editarEstudiante(@PathVariable int id, @RequestBody Estudiante estudiante) {
         Estudiante actualizado = estudianteService.updateEstudiante(id, estudiante);
