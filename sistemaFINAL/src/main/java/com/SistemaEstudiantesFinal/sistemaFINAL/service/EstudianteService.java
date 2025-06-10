@@ -4,10 +4,10 @@ import com.SistemaEstudiantesFinal.sistemaFINAL.models.Estudiante;
 import java.util.List;
 
 public interface EstudianteService {
-    void agregarEstudiante(Estudiante estudiante);
-    Estudiante getEstudiante(int id);
-    List<Estudiante> getEstudiantes();
-    void eliminar(int id);
-    Estudiante updateEstudiante(int id, Estudiante estudiante);
-    Estudiante updateParcial(int id, Estudiante estudiante);
+    abstract void agregarEstudiante(Estudiante estudiante);
+    abstract Estudiante getEstudiante(int id);
+    abstract List<Estudiante> getEstudiantes();
+    abstract void eliminar(int id);
+    abstract Estudiante updateEstudiante(int id, Estudiante estudiante);
+    abstract Estudiante updateParcial(int id, Estudiante estudiante);
 }
